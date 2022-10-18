@@ -27,8 +27,8 @@ module.exports = {
    * 2 or 'error'
    */
   rules: {
-    'no-console': 'warn',
-    'no-debugger': 'warn',
+    'no-console': 1,
+    'no-debugger': 1,
     '@typescript-eslint/no-explicit-any': ['off'],
     // 自定义属性断字  my-prop  (always,never,ignore)
     'vue/attribute-hyphenation': [0, 'always'],
@@ -103,6 +103,9 @@ module.exports = {
     camelcase: 0,
     // 缩进
     indent: 'off',
+    // html缩进
     'vue/html-indent': 'off',
+    // 多词组名称
+    'vue/multi-word-component-names': 0,
   },
 };
