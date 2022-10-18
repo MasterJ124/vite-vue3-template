@@ -1,0 +1,8 @@
+.idea
+dist
+build/*.js
+node_modules
+src/assets
+public
+.gitignore
+.history
