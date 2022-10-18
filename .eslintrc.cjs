@@ -19,7 +19,6 @@ module.exports = {
   /**
    * eslint https://eslint.bootcss.com/docs/rules/
    *
-   * vue扩展 https://github.com/vuejs/eslint-plugin-vue/tree/v6.2.2/docs/rules
    * https://eslint.vuejs.org/rules/
    *
    * typescript-eslint规则 https://typescript-eslint.io/rules/
@@ -31,17 +30,6 @@ module.exports = {
     'no-console': 'warn',
     'no-debugger': 'warn',
     '@typescript-eslint/no-explicit-any': ['off'],
-    // 最大属性每行
-    'vue/max-attributes-per-line': [
-      2,
-      {
-        singleline: 5, // 一行是最大属性数
-        multiline: {
-          max: 1, // 多行是最大属性数
-          allowFirstLine: false, // 是否允许属性和标签在同一行
-        },
-      },
-    ],
     // 自定义属性断字  my-prop  (always,never,ignore)
     'vue/attribute-hyphenation': [0, 'always'],
     // html标签自关闭
@@ -58,7 +46,7 @@ module.exports = {
       },
     ],
     // 组件名称模板  PascalCase,kebab-case,registeredComponentsOnly,ignores
-    'vue/component-name-in-template-casing': [1, 'kebab-case'],
+    'vue/component-name-in-template-casing': [1, 'PascalCase'],
     // 结束括号间距  关闭>标签括号之前强制执行一致的间距样式
     'vue/html-closing-bracket-spacing': 0,
     // 单行元素的内容前后换行
@@ -73,8 +61,6 @@ module.exports = {
     'vue/html-closing-bracket-newline': 0,
     // template模板js解析错误
     'vue/no-parsing-error': 1,
-    // vue组件的name必须使用大驼峰式命名
-    'vue/name-property-casing': [1, 'PascalCase'],
     // 强制组建中方法顺序
     'vue/order-in-components': 2,
     // 强制执行有效的 `v-show` 指令
@@ -118,10 +104,5 @@ module.exports = {
     // 缩进
     indent: 'off',
     'vue/html-indent': 'off',
-    'standard/computed-property-even-spacing': 0,
-    'no-mixed-spaces-and-tabs': 0,
-    'no-useless-escape': 0,
-    'vue/no-multi-spaces': 0,
-    'no-unexpected-multiline': 0,
   },
 };
