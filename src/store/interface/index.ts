@@ -18,3 +18,8 @@ export interface GlobalState {
   language: string;
   themeConfig: ThemeConfigProp;
 }
+
+/* MenuState */
+export interface MenuState {
+  menuList: [];
+}

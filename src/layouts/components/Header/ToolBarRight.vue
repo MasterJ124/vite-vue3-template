@@ -1,13 +1,13 @@
 <template>
   <div class="tool-bar-ri">
     <div class="header-icon" />
-    <span class="username">Geeker</span>
+    <span class="username">个人信息</span>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 .tool-bar-ri {
   display: flex;
   align-items: center;

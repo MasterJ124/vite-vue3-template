@@ -15,6 +15,6 @@ import router from '@/router/index';
 const goHome = router.push(HOME_URL);
 </script>
 
-<style scoped lang="scss">
-@import './index.scss';
+<style scoped lang="less">
+@import './index.less';
 </style>

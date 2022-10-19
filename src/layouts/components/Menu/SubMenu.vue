@@ -34,7 +34,10 @@ defineProps<{ menuList: Menu.MenuOptions[] }>();
 
 const router = useRouter();
 const handleClickMenu = (subItem: Menu.MenuOptions) => {
-  if (subItem.isLink) window.open(subItem.isLink, '_blank');
+  if (subItem.isLink) {
+    window.open(`${window.location.origin}${subItem.path}`, '_blank');
+    return false;
+  }
   router.push(subItem.path);
 };
 </script>

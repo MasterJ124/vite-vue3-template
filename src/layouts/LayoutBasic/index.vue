@@ -2,21 +2,16 @@
 <template>
   <el-container class="layout-vertical">
     <el-aside>
-      <div class="menu" :style="{ width: isCollapse ? '65px' : '220px' }">
+      <div class="menu">
         <div class="logo flx-center">
-          <img src="@/assets/images/logo.svg" alt="logo" />
-          <span v-show="!isCollapse">程序化创意</span>
+          <span>程序化创意</span>
         </div>
         <el-scrollbar>
           <el-menu
             :default-active="activeMenu"
             :router="false"
-            :collapse="isCollapse"
             :collapse-transition="false"
             :unique-opened="true"
-            background-color="#191a20"
-            text-color="#bdbdc0"
-            active-text-color="#ffffff"
           >
             <SubMenu :menuList="menuList" />
           </el-menu>
@@ -25,7 +20,6 @@
     </el-aside>
     <el-container>
       <el-header>
-        <ToolBarLeft />
         <ToolBarRight />
       </el-header>
       <Main />
@@ -38,7 +32,6 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { MenuStore } from '@/store/modules/menu';
 import Main from '@/layouts/components/Main/index.vue';
-import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue';
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue';
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue';
 
@@ -46,7 +39,6 @@ const route = useRoute();
 const menuStore = MenuStore();
 const activeMenu = computed(() => route.path);
 const menuList = computed(() => menuStore.menuList);
-const isCollapse = computed(() => menuStore.isCollapse);
 </script>
 
 <style scoped lang="less">

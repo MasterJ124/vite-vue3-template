@@ -1,8 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-// reset style sheet
 import '@/style/reset.less';
-// CSS common style sheet
 import '@/style/common.less';
 import router from './router';
 // pinia store
