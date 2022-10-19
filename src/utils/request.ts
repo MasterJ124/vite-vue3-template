@@ -122,22 +122,12 @@ service.interceptors.response.use((res: AxiosResponse<any>) => {
 }, errorHandler);
 
 // 通用get
-const $get = (url: string, params?: any) => {
-  return new Promise((resolve, reject) => {
-    service
-      .get(url, { params })
-      .then((res) => resolve(res))
-      .catch((err) => reject(err));
-  });
+const $get = (url: string, params?: object, _object = {}): Promise<any> => {
+  return service.get(url, { params, ..._object });
 };
 // 通用post
-const $post = (url: string, params?: any) => {
-  return new Promise((resolve, reject) => {
-    service
-      .post(url, params)
-      .then((res) => resolve(res))
-      .catch((err) => reject(err));
-  });
+const $post = (url: string, params?: object, _object = {}): Promise<any> => {
+  return service.post(url, params, _object);
 };
 
 export { $get, $post };

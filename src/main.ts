@@ -1,7 +1,9 @@
 import { createApp } from 'vue';
-import './style.css';
 import App from './App.vue';
 import router from './router';
-import store from './store';
+// pinia store
+import pinia from '@/store/index';
+// 自定义指令
+import directives from '@/directives/index';
 
-createApp(App).use(router).use(store).mount('#app');
+createApp(App).use(router).use(pinia).use(directives).mount('#app');
