@@ -7,6 +7,17 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 8001,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'https://test-api-yunxiao.netjoy.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   plugins: [
     vue(),
     AutoImport({
