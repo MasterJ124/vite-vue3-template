@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^1.1.3",
     "element-plus": "^2.2.18",
+    "nprogress": "^0.2.0",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^2.3.0",
     "vue": "^3.2.37",

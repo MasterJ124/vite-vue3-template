@@ -28,7 +28,7 @@ module.exports = {
    */
   rules: {
     'no-console': 1,
-    'no-debugger': 1,
+    'no-debugger': 2,
     '@typescript-eslint/no-explicit-any': ['off'],
     // 自定义属性断字  my-prop  (always,never,ignore)
     'vue/attribute-hyphenation': [0, 'always'],

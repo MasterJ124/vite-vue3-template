@@ -10,11 +10,14 @@ import { ElNotification } from 'element-plus';
 // import { logout } from '@/api/index';
 // import { clearUserInfo } from '@/utils/util';
 // import router from '@/router';
+import { AxiosCanceler } from './axiosCancel';
+
+// 实例化记录请求
+const axiosCanceler = new AxiosCanceler();
 
 const ContentType = {
   urlencoded: 'application/x-www-form-urlencoded;charset=UTF-8',
   json: 'application/json',
-  formData: 'multipart/form-data',
 };
 
 // 创建 axios 实例   withCredentials: true,
@@ -27,34 +30,6 @@ const service = axios.create({
     'X-Requested-With': 'XMLHttpRequest',
   },
 });
-
-// 转换FormData
-service.defaults.transformRequest = (data) => {
-  const formData = new FormData();
-  for (const key in data) {
-    if (data[key] && data[key].constructor === Array) {
-      if (data[key][0]) {
-        if (data[key][0].constructor === Object) {
-          formData.append(key, JSON.stringify(data[key]));
-        } else {
-          data[key].forEach((item: any) => {
-            formData.append(key + '[]', item);
-          });
-        }
-      } else {
-        formData.append(key + '[]', '');
-      }
-    } else if (data[key] && data[key].constructor === Object) {
-      formData.append(key, JSON.stringify(data[key]));
-    } else {
-      formData.append(
-        key,
-        data[key] === 0 || data[key] === false ? data[key] : data[key] || '',
-      );
-    }
-  }
-  return formData;
-};
 
 // 异常拦截处理器
 const errorHandler = (error: AxiosError) => {
@@ -85,14 +60,15 @@ service.interceptors.request.use((config: AxiosRequestConfig) => {
       message: '请检查网络',
     });
   }
+  // * 将当前请求添加到 pending 中
+  axiosCanceler.addPending(config);
   // const token = ls.get(ACCESS_TOKEN);
   // if (token) {
   //   config.headers['X-Token'] = token; // 让每个请求携带自定义 token 请根据实际情况自行修改
   // }
   (config.headers as AxiosRequestHeaders)['X-Token'] =
     '6afc52c24f4f31207d96c2559f399f6c';
-  (config.headers as AxiosRequestHeaders)['Content-Type'] =
-    ContentType[config.data instanceof FormData ? 'formData' : 'json'];
+  (config.headers as AxiosRequestHeaders)['Content-Type'] = ContentType['json'];
   return config;
 }, errorHandler);
 
@@ -100,6 +76,8 @@ service.interceptors.request.use((config: AxiosRequestConfig) => {
 let hasExist = false;
 
 service.interceptors.response.use((res: AxiosResponse<any>) => {
+  // * 在请求结束后，移除本次请求，并关闭请求 loading
+  axiosCanceler.removePending(res.config);
   // 身份已失效，请重新登录
   if (res.data.code === 4002) {
     if (!hasExist) {
