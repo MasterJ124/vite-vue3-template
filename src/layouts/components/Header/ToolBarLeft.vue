@@ -1,15 +1,10 @@
 <template>
-	<div class="tool-bar-lf">
-		<CollapseIcon id="collapseIcon" />
-		<Breadcrumb id="breadcrumb" v-if="themeConfig.breadcrumb" />
-	</div>
+  <div class="tool-bar-lf">toubu</div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { GlobalStore } from "@/store";
-import CollapseIcon from "./components/CollapseIcon.vue";
-import Breadcrumb from "./components/Breadcrumb.vue";
+import { computed } from 'vue';
+import { GlobalStore } from '@/store';
 
 const globalStore = GlobalStore();
 const themeConfig = computed(() => globalStore.themeConfig);
@@ -17,8 +12,8 @@ const themeConfig = computed(() => globalStore.themeConfig);
 
 <style scoped lang="scss">
 .tool-bar-lf {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
