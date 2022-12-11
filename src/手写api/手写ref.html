@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./reactive.js"></script>
+    <script src="./ref.js"></script>
+    <script>
+      const ref1 = shallowRef({
+        name: "小明",
+        car: {
+          color: "red",
+        },
+      });
+      // 劫持
+      ref1.value = "==";
+      // 未劫持到
+      ref1.value.car = "==";
+
+      const ref2 = ref({
+        name: "小明",
+        car: {
+          color: "red",
+        },
+      });
+      // 劫持
+      ref2.value = "==";
+      // 劫持
+      ref2.value.car = "==";
+    </script>
+  </body>
+</html>

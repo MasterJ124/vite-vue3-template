@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- readonly -->
+    <script src="./readonly.js"></script>
+    <script>
+      // 浅劫持
+      const user2 = shallowReadonly({
+        name: "小明",
+        car: ["奔驰", "宝马"],
+      });
+      // 不能修改
+      user2.name = "哈哈";
+      // 不能删除
+      delete user2.name;
+      // 未拦截深度修改
+      user2.car[1] = "奥迪";
+
+      const user3 = readonly({
+        name: "小明",
+        car: ["奔驰", "宝马"],
+      });
+      // 不能修改
+      user3.name = "哈哈";
+      // 不能删除
+      delete user3.name;
+      // 深度不能修改;
+      user3.car[1] = "奥迪";
+    </script>
+  </body>
+</html>

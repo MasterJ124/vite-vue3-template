@@ -5,6 +5,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 import Study from "./components/Study.vue";
 import Study1 from "./components/Study1.vue";
 import Study2Vue from "./components/Study2.vue";
+import Study3Vue from "./components/Study3.vue";
 </script>
 
 <template>
@@ -19,7 +20,8 @@ import Study2Vue from "./components/Study2.vue";
   <HelloWorld msg="Vite + Vue" />
   <!-- <Study /> -->
   <!-- <Study1 /> -->
-  <Study2Vue></Study2Vue>
+  <!-- <Study2Vue></Study2Vue> -->
+  <Study3Vue></Study3Vue>
 </template>
 
 <style scoped>
