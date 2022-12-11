@@ -3,6 +3,8 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from "./components/HelloWorld.vue";
 import Study from "./components/Study.vue";
+import Study1 from "./components/Study1.vue";
+import Study2Vue from "./components/Study2.vue";
 </script>
 
 <template>
@@ -15,7 +17,9 @@ import Study from "./components/Study.vue";
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <Study></Study>
+  <!-- <Study /> -->
+  <!-- <Study1 /> -->
+  <Study2Vue></Study2Vue>
 </template>
 
 <style scoped>
